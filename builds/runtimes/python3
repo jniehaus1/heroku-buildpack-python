@@ -23,7 +23,7 @@ curl -L "${dep_url}" | tar xz -C "${OUT_PREFIX}"
 mv "${OUT_PREFIX}/${python_version}" src
 cd src
 
-./configure --prefix=$OUT_PREFIX --with-ensurepip=no --enable-shared
+./configure --prefix=$OUT_PREFIX --with-ensurepip=no --enable-shared LDFLAGS=-Wl,-rpath=/app/.heroku/python/lib
 make
 make install
 
